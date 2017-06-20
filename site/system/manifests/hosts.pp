@@ -1,12 +1,9 @@
 class system::hosts {
-  # paste the output of `puppet resource host` in this class
-  # and then purge unmanaged resources
-}
-include system::hosts
-resources
- {'host':
+resources {'host':
  purge => true,
  }
+  # paste the output of `puppet resource host` in this class
+  # and then purge unmanaged resources
  host { 'ip6-allnodes':
          ensure => 'present',
          ip     => 'ff02::1',
@@ -44,4 +41,4 @@ resources
         ip           => '172.17.0.1',
         target       => '/etc/hosts',
      }
-
+}
