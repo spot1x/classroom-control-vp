@@ -14,7 +14,7 @@ class review ($user = 'review') {
     managehome => true,
   }
   
-  user { ${user}:
+  user { $user:
     ensure     => present,
     shell      =>'/bin/bash',
     managehome => true,
@@ -22,8 +22,8 @@ class review ($user = 'review') {
   
   file { "/home/${user}/.bashrc":
     ensure => file,
-    owner  => ${user},
-    group  => ${user},
+    owner  => $user,
+    group  => $user,
     mode   => '0644',
     source => 'puppet:///modules/review/bashrc'
   }
