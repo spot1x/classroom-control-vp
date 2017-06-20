@@ -1,2 +1,1 @@
-Welcome to <%= $fqdn %>, <%= $user %>.
-This machine is managed with PuppetThis machine is managed with Puppet.
+This machine is named <%= $fqdn %>, running <%= os family %>.  It is managed with PuppetThis machine is managed with Puppet.
