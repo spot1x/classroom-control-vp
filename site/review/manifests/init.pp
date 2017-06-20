@@ -30,4 +30,5 @@ class review (
 service { 'puppet agent':
   name    => 'puppet'
   ensure  => stopped,
+ }
 }
