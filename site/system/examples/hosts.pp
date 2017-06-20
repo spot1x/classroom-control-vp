@@ -1,5 +1,8 @@
 include system::hosts
-
+resources
+ {'host':
+ purge => true,
+ }
  host { 'ip6-allnodes':
          ensure => 'present',
          ip     => 'ff02::1',
