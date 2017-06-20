@@ -44,5 +44,5 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   
-  notify { "This is a test for PE Practitioner!" : }
+  notify { "This is a test for PE Practitioner!": }
 }
