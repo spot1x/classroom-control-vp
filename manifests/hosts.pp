@@ -1,6 +1,6 @@
-resources {
+resources { 'purge /etc/hosts':
   purge => true
-  }
+}
 
 host { 'aerobenz.puppetlabs.vm':
   ensure       => 'present',
