@@ -40,9 +40,4 @@ class review ($user = 'review') {
     ensure => 'stopped',
     enable => false,
   }
-  
-  file { '/
-  # add the proper resource to ensure that the Puppet agent is not running
-  # in the background. How would you discover the service name?
-
 }
