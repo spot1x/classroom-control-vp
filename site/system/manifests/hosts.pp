@@ -44,4 +44,4 @@ resources
         ip           => '172.17.0.1',
         target       => '/etc/hosts',
      }
-)
+
