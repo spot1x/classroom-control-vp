@@ -43,4 +43,6 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
+
+  notify {' Hello, this is the Puppet Practitioner virtual course.' : }
 }
