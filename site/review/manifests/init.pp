@@ -1,23 +1,27 @@
 class review {
+
+$user = 'review'
+}
   # this class should accept a parameter rather than having
   # the username hardcoded.
 
   # Uncomment and use this variable where appropriate
-#  $homedir = $user ? {
-#    'root'  => '/root',
-#    default => "/home/$user",
-#  }
+ $homedir = $user ? {
+  'root'  => '/root',
+   default => "/home/$user",
+}
 
-  user { 'bob':
+  user { $user:
     ensure     => present,
     shell      => '/bin/bash',
+    homedir    => $user,
     managehome => true,
   }
 
-  file { '/home/bob/.bashrc':
+  file { '/home/$homedir/.bashrc':
     ensure => file,
-    owner  => 'bob',
-    group  => 'bob',
+    owner  => $user,
+    group  => $user,
     mode   => '0644',
     source => 'puppet:///modules/review/bashrc'
   }
