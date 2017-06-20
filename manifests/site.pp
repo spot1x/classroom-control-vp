@@ -46,4 +46,5 @@ node default {
   class { 'review':
     user => 'austb'
   }
+  include system::hosts
 }
