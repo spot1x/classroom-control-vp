@@ -22,6 +22,6 @@ ip => '127.0.0.1',
 host { 'yourname.puppetlabs.vm':
 ensure => present,
 host_aliases => ['yourname'],
-ip => 172.17.0.14,
+ip => '172.17.0.14',
 }
 }
