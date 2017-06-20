@@ -9,7 +9,7 @@ class review {
     default => "/home/$user",
   }
 
-  user { $user
+  user { $user:
     ensure     => present,
     shell      => '/bin/bash',
     managehome => true,
