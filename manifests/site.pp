@@ -44,5 +44,5 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   
-  notify { 'Hi there': }
+  notify { 'resource title': }
 }
