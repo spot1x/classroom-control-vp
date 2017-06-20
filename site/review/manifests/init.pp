@@ -1,16 +1,15 @@
 class review (
   $user = 'review',
-) {
+  ) {
   # this class should accept a parameter rather than having
   # the username hardcoded.
-
-include review::motd
+  include review::motd
 
   # Uncomment and use this variable where appropriate
   $homedir = $user ? {
-  'root'  => '/root',
-   default => "/home/$user",
-}
+    'root'  => '/root',
+    default => "/home/$user",
+  }
 
   user { $user:
     ensure     => present,
@@ -26,10 +25,10 @@ include review::motd
     source => 'puppet:///modules/review/bashrc'
   }
 
- # add the proper resource to ensure that the Puppet agent is not running
- # in the background. How would you discover the service name?
+  # add the proper resource to ensure that the Puppet agent is not running
+  # in the background. How would you discover the service name?
   service { 'puppet':
-   ensure => stopped,
-   enable => false,
+    ensure => stopped,
+    enable => false
   }
 }
