@@ -1,0 +1,3 @@
+Welcome to <%=$fqdn %>.
+
+This machien is managed with Puppet.
