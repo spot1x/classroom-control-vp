@@ -1,6 +1,5 @@
 class review {
-
-$user = 'review'
+  $user = 'review'
 }
   # this class should accept a parameter rather than having
   # the username hardcoded.
@@ -29,4 +28,3 @@ $user = 'review'
   # add the proper resource to ensure that the Puppet agent is not running
   # in the background. How would you discover the service name?
 
-}
