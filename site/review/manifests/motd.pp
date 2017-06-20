@@ -1,4 +1,4 @@
-classa review::motd {
+class review::motd {
   file { '/etc/motd':
     ensure => file,
     owner => 'root',
