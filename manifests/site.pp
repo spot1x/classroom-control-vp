@@ -45,4 +45,4 @@ node default {
   include role::classroom
 }
 
-notify {Puppet practitioner class}
+notify (Puppet practitioner class)
