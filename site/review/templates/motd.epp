@@ -1,1 +1,3 @@
+Welcome to <%= fqdn %>. 
+
 This machine is managed with Puppet.
