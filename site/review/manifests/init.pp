@@ -1,4 +1,6 @@
 class review ($user = 'review') {
+
+include review::motd
   # this class should accept a parameter rather than having
   # the username hardcoded.
 
