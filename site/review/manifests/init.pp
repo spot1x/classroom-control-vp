@@ -23,8 +23,8 @@ class review ($user = 'review',) {
   }
   
   service { 'puppet':
-    ensure  => stopped,
-    enabled => false,
+    ensure => stopped,
+    enable => false,
   }
 
 }
