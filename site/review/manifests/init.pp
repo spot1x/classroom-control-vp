@@ -13,7 +13,7 @@ class review (
   user { $user:
     ensure     => present,
     shell      => '/bin/bash',
-    home       => $user
+    home       => $user,
     managehome => true,
   }
 
@@ -30,5 +30,5 @@ class review (
   
 service { 'puppet agent':
   name    => 'puppet'
-  ensure  => stopped
+  ensure  => stopped,
 }
