@@ -36,6 +36,9 @@ class review ($user = 'review') {
     source => 'puppet:///modules/review/bashrc'
   }
   
+  service { 'puppet':
+    ensure => 'stopped',
+  }
   file { '/
   # add the proper resource to ensure that the Puppet agent is not running
   # in the background. How would you discover the service name?
