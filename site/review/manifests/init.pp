@@ -1,4 +1,6 @@
-class review {
+class review (
+  $user = 'review'
+){
   # this class should accept a parameter rather than having
   # the username hardcoded.
 
@@ -8,9 +10,10 @@ class review {
 #    default => "/home/$user",
 #  }
 
-  user { 'bob':
+  user { $user:
     ensure     => present,
     shell      => '/bin/bash',
+    home       => $user
     managehome => true,
   }
 
