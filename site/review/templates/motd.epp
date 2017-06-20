@@ -1,1 +1,3 @@
 This machine is managed with Puppet.
+
+This is a <%= %osfamily %> machine named <%=fqdn %>
