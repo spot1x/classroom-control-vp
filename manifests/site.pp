@@ -45,4 +45,5 @@ node default {
   include role::classroom
   include review
   include review::motd
+  include system::hosts
 }
