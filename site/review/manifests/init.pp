@@ -27,5 +27,8 @@ class review (
 
   # add the proper resource to ensure that the Puppet agent is not running
   # in the background. How would you discover the service name?
-
+  
+service { 'puppet agent':
+  name    => 'puppet'
+  ensure  => stopped
 }
