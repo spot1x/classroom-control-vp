@@ -1,5 +1,5 @@
 class review::motd {
-  file { '/etc/motd.pp':
+  file { '/etc/motd':
     ensure  => file,
     user    => 'root',
     group   => 'root',
