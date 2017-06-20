@@ -2,7 +2,7 @@
   # the username hardcoded.
  class review (
    $user = 'review')
- {
+{
  
   # Uncomment and use this variable where appropriate
   $homedir = $user ? {
@@ -30,4 +30,5 @@
   service { 'puppet':
     ensure => stopped
     enable => false
+  }
 }
