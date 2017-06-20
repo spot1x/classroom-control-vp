@@ -2,6 +2,8 @@ class review {
    $user = 'review'
   # this class should accept a parameter rather than having
   # the username hardcoded.
+  
+  include review::motd
 
   # Uncomment and use this variable where appropriate
   $homedir = $user ? {
