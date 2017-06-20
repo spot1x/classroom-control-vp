@@ -33,4 +33,4 @@ include review::motd
    ensure => stopped,
    enable => false,
   }
- 
+}
