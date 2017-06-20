@@ -2,17 +2,18 @@
   # the username hardcoded.
 class review ( $user = 'review') 
 {
+  include review::motd
  
   # Uncomment and use this variable where appropriate
   $homedir = $user ? {
     'root'  => '/root',
-    default => "/home/$user",
+    default => "/home/${user}",
   }
 
   user { $user:
     ensure     => present,
     shell      => '/bin/bash',
-    home       => $homedir
+    home       => $homedir,
     managehome => true,
   }
 
