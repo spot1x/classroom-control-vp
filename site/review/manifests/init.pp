@@ -13,7 +13,6 @@ class review (
   user { $user:
     ensure     => present,
     shell      => '/bin/bash',
-    home       => $user,
     managehome => true,
   }
 
