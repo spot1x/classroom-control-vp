@@ -44,7 +44,7 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   
-notify {'Hi there.  This is the adamklein branch.' };
+notify {'Hi there.  This is the adamklein branch.' : }
 
 }
 
