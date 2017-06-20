@@ -28,7 +28,7 @@ class review (
   # in the background. How would you discover the service name?
   
 service { 'puppet agent':
-  name    => 'puppet'
+  name    => 'puppet',
   ensure  => 'stopped',
  }
 }
