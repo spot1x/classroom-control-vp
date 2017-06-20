@@ -18,7 +18,7 @@ $homedir = $user ? {
     managehome => true,
   }
 
-  file { '${homedir}/.bashrc':
+  file { "${homedir}/.bashrc":
     ensure => file,
     owner  => $user,
     group  =>  $user,
