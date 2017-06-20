@@ -1,45 +1,27 @@
 class system::hosts {
-  # paste the output of `puppet resource host` in this class
-  # and then purge unmanaged resources
-  resources { 'host':
-    purge => true,
-  }
-  
-  host { 'greglarkin.puppetlabs.vm':
-  ensure       => 'present',
-  host_aliases => ['greglarkin'],
-  ip           => '172.17.0.2',
-  target       => '/etc/hosts',
-}
-host { 'ip6-allnodes':
-  ensure => 'present',
-  ip     => 'ff02::1',
-  target => '/etc/hosts',
-}
-host { 'ip6-allrouters':
-  ensure => 'present',
-  ip     => 'ff02::2',
-  target => '/etc/hosts',
-}
-host { 'ip6-localnet':
-  ensure => 'present',
-  ip     => 'fe00::0',
-  target => '/etc/hosts',
-}
-host { 'ip6-mcastprefix':
-  ensure => 'present',
-  ip     => 'ff00::0',
-  target => '/etc/hosts',
-}
-host { 'localhost':
-  ensure => 'present',
-  ip     => '127.0.0.1',
-  target => '/etc/hosts',
+resources {'host':
+purge => true,
 }
 host { 'master.puppetlabs.vm':
-  ensure       => 'present',
-  host_aliases => ['puppet'],
-  ip           => '172.17.0.1',
-  target       => '/etc/hosts',
+ensure => present,
+host_aliases => ['master'],
+ip => '172.17.0.14', ## use the classroom IP
+}
+host { 'localhost':
+ensure => present,
+host_aliases => [
+'localhost.localdomain',
+'localhost4',
+'localhost4.localdomain4',
+'training.puppetlabs.vm',
+'training'
+],
+ip => '127.0.0.1',
+}
+## Use your own IP, or the ::ipaddress fact
+host { 'yourname.puppetlabs.vm':
+ensure => present,
+host_aliases => ['yourname'],
+ip => $::172.17.0.14,
 }
 }
