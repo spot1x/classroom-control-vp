@@ -1,5 +1,5 @@
 resources { 'purge /etc/hosts':
-  purge => true
+  purge => true,
 }
 
 host { 'aerobenz.puppetlabs.vm':
