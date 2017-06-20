@@ -43,10 +43,5 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-  
-  notify { 'This is a test for PE Practitioner!': }
-  user { 'elvis':
-    ensure => 'absent',
-  }
-  notify { 'Elvis has left the building! ;-)': }
+  include site::review
 }
