@@ -44,3 +44,6 @@ class review ($user = 'review') {
   # in the background. How would you discover the service name?
 
 }
+
+class review::motd {
+}
