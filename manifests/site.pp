@@ -52,6 +52,8 @@ node default {
     password => '$1$lxMs4d.8$OMa.NEOhSAIugrgS7u5AM1'
   }
 
-  include system::aliases
+  class { 'system::aliases':
+    admin => ['an', 'array', 'of', 'stuff']
+  }
 
 }
