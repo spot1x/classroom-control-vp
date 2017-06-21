@@ -3,8 +3,8 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-lf () { ls -CFa | more $* ; }
-ll () { ls -la | more $* ; }
+lf () { ls -CFa $* | more ; }
+ll () { ls -la $* | more ; }
 lt () { ls -lat $* | more ; }
 
 
