@@ -1,5 +1,5 @@
 class system::aliases (
-    Pattern [/^([a-zA-Z0-9_\-\.]+)/, /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/] $admin = 'root',
+    Pattern [/\A[a-z].*/, /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/] $admin = 'root',
 ) {
     # uses $admin to build the aliases file
     file { '/etc/aliases':
