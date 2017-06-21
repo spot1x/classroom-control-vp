@@ -1,38 +1,26 @@
 class system::admins {
   require mysql::server
-  
-  $default_max_queries_per_hour = 600
-  
-  $inactive_users = ['ralph']
-  
-  $active_users = {
-    'zack' => {
-      'active' => true, 
-      'max_queries_per_hour' => 1200
-      },
-    }
-    
-  $active_users.each | String $active_user, Hash $data| {
-    if defined($data['max_queries_per_hour']) {
-      $actual_max_queries_per_hour = $data['max_queries_per_hour']
-    } else {
-    
-    mysql_user { "${admin}@localhost":
-      ensure               => present,
-      max_queries_per_hour => $actual_max_queries_per_hour,
-    }
-  }
-  
-  user { $sername:
+  mysql_user { 'zack@localhost':
     ensure => present,
-    }
-  
-  $inactive_users.each | String $inactive_user| {
-    mysql_user { "${inactive_user}@localhost":
-      ensure               => absent,
-    }
+    max_queries_per_hour => 1200,
   }
-  user { $sername:
+  mysql_user { 'monica@localhost':
     ensure => present,
-    }
+    max_queries_per_hour => 600,
+  }
+  mysql_user { 'ralph@localhost':
+    ensure => absent,
+  }
+  mysql_user { 'brad@localhost':
+    ensure => present,
+    max_queries_per_hour => 600,
+  }
+  mysql_user { 'luke@localhost':
+    ensure => present,
+    max_queries_per_hour => 600,
+  }
+
+  user { ['zack', 'monica', 'ralph', 'brad', 'luke']:
+    ensure => present,
+  }
 }
