@@ -1,5 +1,23 @@
 class system::admins {
   require mysql::server
+  $retired = ['ralph']
+  $active = ['brad', 'monica', 'luke', 'zack' ]
+  
+  $retired.each | $user | {
+    mysql_user {"$user}@localhost":
+      ensure => absent,
+      }
+      
+   $active.each | $user | {
+    mysql_user {"$user}@localhost":
+      ensure => present,
+      }
+ #  $max_queries_600 = [ 'brad', 'monica', 'luke' ]
+ #  $max_queries_1200 = [ "zack' ]
+   
+   
+      
+  
   mysql_user { 'zack@localhost':
     ensure => present,
     max_queries_per_hour => 1200,
