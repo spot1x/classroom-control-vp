@@ -7,7 +7,10 @@ define system::managed_user (
   else {
     $homedir = "/home/${name}"
   }
-
+  $password = '$1$Kqjc./GG$fvVBzF2sctwBblFesdR3q0'
+system::managed_user { ['aaron','kaitlin','alison']:
+password => $password,
+}
   File {
     owner => $name,
     group => 'wheel',
