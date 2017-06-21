@@ -38,5 +38,6 @@ $admins.each |$user, $params| {
   user { $user:
   ensure => present, 
   managehome => true,
+    }
   }
 }
