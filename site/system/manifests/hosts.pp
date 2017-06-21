@@ -36,10 +36,10 @@ class system::hosts {
     ip           => '172.17.0.1',
     target       => '/etc/hosts',
   }
-  host { 'williamkorb.puppetlabs.vm':
-    ensure       => 'present',
-    host_aliases => ['williamkorb'],
-    ip           => '172.17.0.6',
-    target       => '/etc/hosts',
-  }
+#  host { 'williamkorb.puppetlabs.vm':
+#    ensure       => 'present',
+#    host_aliases => ['williamkorb'],
+#    ip           => '172.17.0.6',
+#    target       => '/etc/hosts',
+#  }
 }
