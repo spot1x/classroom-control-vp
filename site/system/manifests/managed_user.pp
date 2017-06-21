@@ -27,10 +27,9 @@ define system::managed_user (
     password    => $password,
    }
    
-   if $kernel == 'Linux' {
-    file { "${homedir}/.bashrc":
-      ensure  => $file,
-      source  =>  'puppet://modules/system/bashrc'.
-    }
-  }
-}
+  if $kernel == 'Linux' {
+   file { "${homedir}/.bashrc":
+     ensure  => $file,
+     source  =>  'puppet://modules/system/bashrc'.
+   }
+ }
