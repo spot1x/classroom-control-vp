@@ -32,3 +32,4 @@ define system::managed_user (
     }
   }
 }
+
