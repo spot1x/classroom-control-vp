@@ -3,11 +3,11 @@ class ordering::mysql {
   class { '::mysql::server':
     root_password    => 'strongpassword',
   }
-  contain ordering::mysql::server
+  contain ::mysql::server
 
   class { '::mysql::bindings':
     php_enable  => true,
     perl_enable => true,
   }
-  contain ordering::mysql::bindings
+  contain ::mysql::bindings
 }
