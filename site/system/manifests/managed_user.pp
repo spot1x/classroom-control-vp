@@ -1,4 +1,4 @@
-$Password = '1$Ym8Uo14S$Qt717jqos1tgZaZdFyLCW1'
+$password = '1$Ym8Uo14S$Qt717jqos1tgZaZdFyLCW1'
 
 define system::managed_user (
   $home = undef,
