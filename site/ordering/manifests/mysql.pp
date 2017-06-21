@@ -3,6 +3,7 @@ class ordering::mysql {
   class { '::mysql::server':
     root_password    => 'strongpassword',
   }
+  contain mysql::server
 
   class { '::mysql::bindings':
     php_enable  => true,
@@ -10,5 +11,4 @@ class ordering::mysql {
   }
 
   contain mysql::bindings
-  contain mysql::server
 }
