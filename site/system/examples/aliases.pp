@@ -1,9 +1,7 @@
 user { 'admin':
-  ensure => present,
+ensure => present,
 }
-
 class { 'system::aliases':
-  admin   => 'admin',
-  require => User['admin'],
+admin => 'admin',
+require => User['admin'],
 }
-
