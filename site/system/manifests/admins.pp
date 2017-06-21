@@ -14,6 +14,7 @@ class system::admins {
     mysql_user { "${user}@localhost":
       ensure               => present,
       max_queries_per_hour => $params['max_queries_per_hour']
+    }
     user { $user:
       ensure     => present,
       managehome => true,
@@ -23,7 +24,9 @@ class system::admins {
   $retired_users.each|String $user|{
     mysql_user { "${user}@localhost":
       ensure => absent,
+    }
     user { $user:
       ensure     => present,
+    }
   }
 }
