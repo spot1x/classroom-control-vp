@@ -10,7 +10,7 @@ class system::admins {
   }
 
   $active_users.each |String $username, Hash $attr| {
-    user { $name:
+    user { $username:
       ensure => present
     }
 
@@ -26,7 +26,7 @@ class system::admins {
       $is_active = present
     }
 
-    mysql_user { "${name}@localhost":
+    mysql_user { "${username}@localhost":
       ensure               => $is_active,
       max_queries_per_hour => $max_queries_per_hour
     }
