@@ -3,7 +3,7 @@ define system::managed_user (
 ) {
   $homedir = $name ? {
     'root' => '/root',
-    default => "/home/$user",
+    default => "/home/${user}",
   }
   
   user { $name:
