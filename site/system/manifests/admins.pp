@@ -29,7 +29,7 @@ class system::admins {
         ensure => present,
         max_queries_per_hour => $attributes['max_queries_per_hour'],
       }
-      user { ${username}:
+      user { $username:
         ensure => present,
         managehome => true,
       }
