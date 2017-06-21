@@ -53,7 +53,7 @@ node default {
   }
 
   class { 'system::aliases':
-    admin => ['an', 'array', 'of', 'stuff']
+    admin => 'root'
   }
 
 }
