@@ -1,20 +1,51 @@
 class system::admins {
   require mysql::server
   
-  $retired = ['ralph']
-  $admins = {
-  'brad' => { max_queries_per_hour => '600' }, 
-  'monica' => { max_queries_per_hour => '600' }, 
-  'luke' => { max_queries_per_hour => '600' }, 
-  'zack' => { max_queries_per_hour => '1200' },
+  # Active users: zack, monica, brad, luke
+  # Inactive users: ralph
+  # Most common parameters: ensure => present, max_queries_per_hour => 1200
+  
+  $default_max_queries_per_hour = 600
+  
+  $active_users = {
+    'zack' => {
+      'max_queries_per_hour' => 1200
+    },
+    'monica' => {},
+    'brad' => {},
+    'luke' => {}
   }
-
-$admins.each |$user, $params| { 
-  mysql_user { "${user}@localhost":
-  ensure => present,
-  max_queries_per_hour => $params['max_queries_per_hour'], 
+  
+  $inactive_users = 'ralph'
+  
+  $active_users.each |String $username, Hash $data| {
+    if defined($data['max_queries_per_hour']) {
+      $actual_max_queries_per_hour = $data['max_queries_per_hour']
+    } else {
+      $actual_max_queries_per_hour = $default_max_queries_per_hour
+    }
+    
+    mysql_user { "${username}@localhost":
+      ensure => present,
+      max_queries_per_hour => $actual_max_queries_per_hour,
+    }
+    
+    user { $username:
+      ensure => present,
+    }
   }
-
+  
+  $inactive_users.each |String $username| {
+    mysql_user { "${username}@localhost":
+      ensure => absent,
+    }
+    
+    user { $username:
+      ensure => absent,
+    }
+  }
+  
+  /*
   mysql_user { 'zack@localhost':
     ensure => present,
     max_queries_per_hour => 1200,
@@ -34,10 +65,11 @@ $admins.each |$user, $params| {
     ensure => present,
     max_queries_per_hour => 600,
   }
+  */
 
-  user { $user:
-  ensure => present, 
-  managehome => true,
-    }
+  /*
+  user { ['zack', 'monica', 'ralph', 'brad', 'luke']:
+    ensure => present,
   }
+  */
 }
