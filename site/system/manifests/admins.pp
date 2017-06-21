@@ -1,5 +1,12 @@
 class system::admins {
   require mysql::server
+  
+  $default_max_queries_per_hour = 600
+  
+  $active_users = {
+  
+  $inactive_users = 'ralph'
+  
   mysql_user { 'zack@localhost':
     ensure => present,
     max_queries_per_hour => 1200,
