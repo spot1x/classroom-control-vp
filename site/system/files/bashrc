@@ -3,7 +3,12 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+lf () { ls -CFa | more $* ; }
+ll () { ls -la | more $* ; }
+lt () { ls -lat $* | more ; }
+
+
 # Source global definitions
 [[ -f /etc/bashrc ]] && source /etc/bashrc
 
-cowsay "Hello there!"
+cowsay "Hello there, $USER!!! ;-)"
