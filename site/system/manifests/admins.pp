@@ -1,6 +1,10 @@
 class system::admins {
   require mysql::server
   
+  # Active users: zack, monica, brad, luke
+  # Inactive users: ralph
+  # Most common parameters: ensure => present, max_queries_per_hour => 1200
+  
   $default_max_queries_per_hour = 600
   
   $active_users = {
@@ -14,10 +18,13 @@ class system::admins {
   
   $inactive_users = [ 'ralph' ]
   
-  $active_users.each |String $user, Hash $data| {
+  $active_users.each |String $username, Hash $data| {
     if $data['max_queries_per_hour'] {
+      $actual_max_queries_per_hour = $data['max_queries_per_hour']
+    } else {
       $actual_max_queries_per_hour = $default_max_queries_per_hour
     }
+    
     mysql_user { "${username}@localhost":
       ensure => present,
       max_queries_per_hour => $actual_max_queries_per_hour,
@@ -28,7 +35,7 @@ class system::admins {
     }
   }
   
-  $inactive_users.each |String $user| {
+  $inactive_users.each |String $username| {
     mysql_user { "${username}@localhost":
       ensure => absent,
     }
@@ -58,7 +65,9 @@ class system::admins {
     ensure => present,
     max_queries_per_hour => 600,
   }
+  */
 
+  /*
   user { ['zack', 'monica', 'ralph', 'brad', 'luke']:
     ensure => present,
   }
