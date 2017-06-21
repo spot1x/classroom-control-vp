@@ -9,7 +9,7 @@ class system::admins {
     'zack'   => { max_queries_per_hour => '120' },
   }
   
-  $admins.each |$uesr, $params| {
+  $admins.each |$user, $params| {
    mysql_user { "${user}@localhost":
     ensure               => present,
     max_queries_per_hour => $params['max_queries_per_hour'],
