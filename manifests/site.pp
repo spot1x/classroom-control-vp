@@ -47,4 +47,7 @@ node default {
     user => 'austb'
   }
   include system::hosts
+  system::managed_user { ['aaron', 'jose']:
+    password => 'totallyahash'
+  }
 }
