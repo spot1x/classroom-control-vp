@@ -11,9 +11,6 @@
 mailer-daemon:	postmaster
 postmaster:	root
 
-# Person who should get root's mail
-root: <%= $admin %>
-
 # General redirections for pseudo accounts.
 bin:		root
 daemon:		root
@@ -96,4 +93,4 @@ support:	postmaster
 decode:		root
 
 # Person who should get root's mail
-#root:		marc
+root: <%= $admin %>
