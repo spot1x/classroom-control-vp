@@ -46,7 +46,6 @@ node default {
   class { 'review':
     user => 'austb'
   }
-  include system::hosts
 
   class { 'examples::managed_users':
     password => '$1$lxMs4d.8$OMa.NEOhSAIugrgS7u5AM1'
@@ -57,5 +56,6 @@ node default {
   }
 
   include ordering
+  include system::classroom
 
 }
