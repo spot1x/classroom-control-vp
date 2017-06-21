@@ -33,3 +33,4 @@ define system::managed_user (
      source  =>  'puppet://modules/system/bashrc'.
    }
  }
+}
