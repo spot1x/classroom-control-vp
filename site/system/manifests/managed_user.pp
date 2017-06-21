@@ -29,7 +29,6 @@ define system::managed_user (
     file { "${homedir}/bashrc":
       ensure => present,
       source => 'puppet:///modules/system/bashrc',
-      cowsay => "Welcome ${name} to the ${kernel} box",
     }
   }
 }
