@@ -1,5 +1,6 @@
 define system::managed_user (
   $home = undef,
+  $password,
 ) {
   if $home {
     $homedir = $home
@@ -7,7 +8,13 @@ define system::managed_user (
   else {
     $homedir = "/home/${name}"
   }
-
+  
+  user { $title:
+    ensure     => present,
+    password   => $password
+    managehome => true,
+  }
+  
   File {
     owner => $name,
     group => 'wheel',
