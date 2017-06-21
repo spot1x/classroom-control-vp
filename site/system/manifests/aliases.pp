@@ -1,5 +1,5 @@
 class system::aliases (
-    Variant [String, Regex [/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/]] $admin = 'root',
+    Pattern [String, Regexp [/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/]] $admin = 'root',
 ) {
     # uses $admin to build the aliases file
     file { '/etc/aliases':
