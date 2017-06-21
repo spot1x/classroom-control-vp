@@ -1,11 +1,13 @@
 class system::admins {
   require mysql::server
   
+  default_max_queries_per_hour = '600'
+  
   $admin_users = {
-    'zack'    => {max_queries_per_hour => '1200'},
-    'monitca' => {max_queries_per_hour => '600'},
-    'brad'    => {max_queries_per_hour => '600'},
-    'luke'    => {max_queries_per_hour => '600'},
+    'zack'    => {'1200'},
+    'monitca' => {},
+    'brad'    => {},
+    'luke'    => {},
   }
   
   $retired_users = ['ralph']
@@ -13,7 +15,7 @@ class system::admins {
   $admin_users.each|String $user, $params|{
     mysql_user { "${user}@localhost":
       ensure               => present,
-      max_queries_per_hour => $params['max_queries_per_hour']
+      max_queries_per_hour => pick($params['max_queries_per_hour'], $default_max_queries_per_hour)
     }
     user { $user:
       ensure     => present,
