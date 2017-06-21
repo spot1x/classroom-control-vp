@@ -57,5 +57,6 @@ node default {
   }
 
   include system::admins
+  include ordering
 
 }
