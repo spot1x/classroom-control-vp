@@ -1,6 +1,7 @@
 class system::admins {
   require mysql::server
-  $admins = {
+
+  {
     'zack' => {
       max_queries_per_hour => 1200,
       active => true,
@@ -21,10 +22,8 @@ class system::admins {
       max_queries_per_hour => 600,
       active => true,
     },
-  }
-
-  $admins.each | String $username, Hash $attributes | {
-    if $active == true {
+  }.each | String $username, Hash $attributes | {
+    if $attributes['active'] {
       mysql_user { "${username}@localhost":
         ensure => present,
         max_queries_per_hour => $attributes['max_queries_per_hour'],
@@ -33,7 +32,6 @@ class system::admins {
         ensure => present,
         managehome => true,
       }
-      notice "${username} is active"
     }
     else {
       mysql_user { "${username}@localhost":
@@ -42,7 +40,6 @@ class system::admins {
       user { $username:
         ensure => absent,
       }
-      notice "${username} is retired"
     }
   }
 }
