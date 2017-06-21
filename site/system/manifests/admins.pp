@@ -4,9 +4,41 @@ class system::admins {
   $default_max_queries_per_hour = 600
   
   $active_users = {
+    'zack' => {
+      'max_queries_per_hour' => 1200
+    },
+    'monica' => {},
+    'brad' => {},
+    'luke' => {}
+  }
   
-  $inactive_users = 'ralph'
+  $inactive_users = [ 'ralph' ]
   
+  $active_users.each |String $user, Hash $data| {
+    if $data['max_queries_per_hour'] {
+      $actual_max_queries_per_hour = $default_max_queries_per_hour
+    }
+    mysql_user { "${username}@localhost":
+      ensure => present,
+      max_queries_per_hour => $actual_max_queries_per_hour,
+    }
+    
+    user { $username:
+      ensure => present,
+    }
+  }
+  
+  $inactive_users.each |String $user| {
+    mysql_user { "${username}@localhost":
+      ensure => absent,
+    }
+    
+    user { $username:
+      ensure => absent,
+    }
+  }
+  
+  /*
   mysql_user { 'zack@localhost':
     ensure => present,
     max_queries_per_hour => 1200,
@@ -30,4 +62,5 @@ class system::admins {
   user { ['zack', 'monica', 'ralph', 'brad', 'luke']:
     ensure => present,
   }
+  */
 }
