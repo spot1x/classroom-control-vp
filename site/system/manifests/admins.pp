@@ -38,7 +38,7 @@ class system::admins {
       mysql_user { "${username}@localhost":
         ensure => absent,
       }
-      user { ${username}:
+      user { $username:
         ensure => absent,
       }
     }
