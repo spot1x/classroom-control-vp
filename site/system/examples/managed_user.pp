@@ -5,3 +5,7 @@ $password = '$1$HdDw//gC$2VBiQ1x5blLPwNS.G.Iw21'
 system::managed_user { ['aaron', 'kaitlin', 'alison']:
   password => $password,
 }
+
+system::managerd_user { ['john', 'colin', 'fidel']:
+  password => $password,
+}
