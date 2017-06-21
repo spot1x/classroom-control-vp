@@ -3,9 +3,9 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-lf () { ls -CFa $* | more ; }
-ll () { ls -la $* | more ; }
-lt () { ls -lat $* | more ; }
+function lf () { ls -CFa $* | more ; }
+function ll () { ls -la $* | more ; }
+function lt () { ls -lat $* | more ; }
 
 
 # Source global definitions
