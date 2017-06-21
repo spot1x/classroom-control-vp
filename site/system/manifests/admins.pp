@@ -4,7 +4,7 @@ class system::admins {
   default_max_queries_per_hour = '600'
   
   $admin_users = {
-    'zack'    => {'1200'},
+    'zack'    => {'max_queries_per_hour => '1200'},
     'monitca' => {},
     'brad'    => {},
     'luke'    => {},
