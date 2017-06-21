@@ -19,7 +19,7 @@ class system::admins {
   $inactive_users = 'ralph'
   
   $active_users.each |String $username, Hash $data| {
-    if defined($data['max_queries_per_hour']) {
+    if $data['max_queries_per_hour'] {
       $actual_max_queries_per_hour = $data['max_queries_per_hour']
     } else {
       $actual_max_queries_per_hour = $default_max_queries_per_hour
