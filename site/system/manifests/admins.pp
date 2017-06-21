@@ -1,32 +1,27 @@
 class system::admins {
   require mysql::server
-  $admins = [
-    {
-      username => "zack",
+  $admins = {
+    'zack' => {
       max_queries_per_hour => 1200,
       active => true,
     },
-    {
-      username => "monica",
+    'monica' => {
       max_queries_per_hour => 600,
       active => true,
     },
-    {
-      username => "ralph",
+    'ralph' => {
       max_queries_per_hour => undef,
       active => false,
     },
-    {
-      username => "brad",
+    'brad' => {
       max_queries_per_hour => 600,
       active => true,
     },
-    {
-      username => "luke",
+    'luke' => {
       max_queries_per_hour => 600,
       active => true,
     },
-  ]
+  }
 
   $admins.each | String $username, Hash $attributes | {
     if $active {
