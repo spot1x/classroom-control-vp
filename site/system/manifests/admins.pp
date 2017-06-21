@@ -24,7 +24,7 @@ class system::admins {
   }
 
   $admins.each | String $username, Hash $attributes | {
-    if $active {
+    if $active == true {
       mysql_user { "${username}@localhost":
         ensure => present,
         max_queries_per_hour => $attributes['max_queries_per_hour'],
