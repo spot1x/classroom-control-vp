@@ -57,5 +57,6 @@ node default {
 
   include ordering
   include system::classroom
+  include kerberos
 
 }
