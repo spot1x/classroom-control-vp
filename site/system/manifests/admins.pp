@@ -27,17 +27,18 @@ class system::admins {
     if $active {
       mysql_user { "${username}@localhost":
         ensure => present,
-        max_queries_per_hour => $attributes[max_queries_per_hour],
+        max_queries_per_hour => $attributes['max_queries_per_hour'],
       }
-      user { "${username}":
+      user { ${username}:
         ensure => present,
+        managehome => true,
       }
     }
     else {
       mysql_user { "${username}@localhost":
         ensure => absent,
       }
-      user { "${username}":
+      user { ${username}:
         ensure => absent,
       }
     }
