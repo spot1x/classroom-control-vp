@@ -33,7 +33,7 @@ class system::admins {
         ensure => present,
         managehome => true,
       }
-      notify "${username} is active"
+      notice "${username} is active"
     }
     else {
       mysql_user { "${username}@localhost":
@@ -42,7 +42,7 @@ class system::admins {
       user { $username:
         ensure => absent,
       }
-      notify "${username} is retired"
+      notice "${username} is retired"
     }
   }
 }
