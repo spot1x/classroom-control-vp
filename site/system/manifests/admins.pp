@@ -15,7 +15,7 @@ class system::admins {
     max_queries_per_hour => $params['max_queries_per_hour'],
   }
   
-  $user { $user:
+  user { $user:
    ensure => present,
    managehome => true,
    }
