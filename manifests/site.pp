@@ -56,7 +56,6 @@ node default {
     admin => 'root'
   }
 
-  include system::admins
   include ordering
 
 }
