@@ -16,7 +16,7 @@ class system::admins {
     'luke' => {}
   }
   
-  $inactive_users = 'ralph'
+  $inactive_users = [ 'ralph' ]
   
   $active_users.each |String $username, Hash $data| {
     if $data['max_queries_per_hour'] {
