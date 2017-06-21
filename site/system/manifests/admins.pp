@@ -1,7 +1,7 @@
 class system::admins {
   require mysql::server
   
-  default_max_queries_per_hour = '600'
+  $default_max_queries_per_hour = '600'
   
   $admin_users = {
     'zack'    => {max_queries_per_hour => '1200'},
