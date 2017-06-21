@@ -1,26 +1,59 @@
 class system::admins {
   require mysql::server
-  mysql_user { 'zack@localhost':
-    ensure => present,
-    max_queries_per_hour => 1200,
+  
+  $retired = ['ralph']
+  $admins = {
+    'brad'   => { max_queries_per_hour => '600' },
+    'monica' => { max_queries_per_hour => '600' },
+    'luke'   => { max_queries_per_hour => '600' },
+    'zack'   => { max_queries_per_hour => '120' },
   }
-  mysql_user { 'monica@localhost':
-    ensure => present,
-    max_queries_per_hour => 600,
+  
+  $admins.each |$uesr, $params| {
+   mysql_user { "${user}@localhost":
+    ensure               => present,
+    max_queries_per_hour => $params['max_queries_per_hour'],
   }
-  mysql_user { 'ralph@localhost':
-    ensure => absent,
+  
+  $user { $user:
+   ensure => present,
+   managehome => true,
+   }
+  
   }
-  mysql_user { 'brad@localhost':
-    ensure => present,
-    max_queries_per_hour => 600,
+ 
+ $retired.each |$user| {
+  mysql_user { "${user}@localhost":
+   ensure => absent,
+ }
+ 
+ user { $user:
+  ensure => absent,
   }
-  mysql_user { 'luke@localhost':
-    ensure => present,
-    max_queries_per_hour => 600,
-  }
-
-  user { ['zack', 'monica', 'ralph', 'brad', 'luke']:
-    ensure => present,
-  }
+ }
+ 
 }
+#  mysql_user { 'zack@localhost':
+#    ensure => present,
+#    max_queries_per_hour => 1200,
+#  }
+#  mysql_user { 'monica@localhost':
+#    ensure => present,
+#    max_queries_per_hour => 600,
+#  }
+#  mysql_user { 'ralph@localhost':
+#    ensure => absent,
+#  }
+#  mysql_user { 'brad@localhost':
+#    ensure => present,
+#    max_queries_per_hour => 600,
+#  }
+#  mysql_user { 'luke@localhost':
+#    ensure => present,
+#    max_queries_per_hour => 600,
+#  }
+#
+#  user { ['zack', 'monica', 'ralph', 'brad', 'luke']:
+#    ensure => present,
+#  }
+# }
