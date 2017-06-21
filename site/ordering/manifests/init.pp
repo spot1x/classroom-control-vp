@@ -1,4 +1,5 @@
 class ordering {
+ include ordering::mysql
   # include the ordering::mysql class
   # Does it need to be contained?
 
