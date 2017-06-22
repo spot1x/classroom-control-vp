@@ -34,4 +34,5 @@ class files {
     target  => '/etc/motd',
     order   => '05',
     content => "Just appended a message to the motd by use of concat::fragment\n",
+  }
 }
