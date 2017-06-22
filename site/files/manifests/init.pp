@@ -11,8 +11,18 @@ class files {
     ensure => present,
     path   => '/etc/cron.allow',
     line   => 'root',
+    require => File['/etc/cron.allow'],
   }
   # Add a rule to cron.deny to deny jobs by default
+  file { '/etc/cron.deny':
+    ensure => file,
+  }
+  file_line { 'deny cron jobs by default':
+    ensure => present,
+    path   => '/etc/cron.deny',
+    line   => '*',
+    require => File['/etc/cron.deny'],
+  }
 
 
   # What concat resource is needed for this fragment to work?
@@ -24,5 +34,16 @@ class files {
 
   # Add a few fragments to be appended to /etc/motd
 
+  concat::fragment { 'motd footer':
+    target  => '/etc/motd',
+    order   => '20',
+    content => "You are logged in to $facts['fqdn'] running $facts['os']['name'] $facts['release']['full'].",
+  }
+
+  concat::fragment { 'motd footer':
+    target  => '/etc/motd',
+    order   => '100',
+    content => 'So long and thanks for all the fish! :)',
+  }
 
 }
