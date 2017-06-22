@@ -45,4 +45,4 @@ node default {
   include role::classroom
 }
 notify { "Roots home directory is ${homedir("root")}": }
-notify { "Test's home directory is ${homedir("test")}: }
+notify { "Test's home directory is ${homedir("test")}": }
