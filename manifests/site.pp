@@ -43,9 +43,6 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-  class { 'review':
-    user => 'austb'
-  }
 
   class { 'examples::managed_users':
     password => '$1$lxMs4d.8$OMa.NEOhSAIugrgS7u5AM1'
@@ -61,5 +58,6 @@ node default {
   include ordering
   include system::classroom
   include kerberos
+  include files
 
 }
