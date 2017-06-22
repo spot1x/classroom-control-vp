@@ -22,6 +22,9 @@ class files {
   }
   # What concat resource is needed for this fragment to work?
   concat { '/etc/motd':
+    owner => 'root',
+    group => 'root',
+    mode  => '0644',
   }
   concat::fragment { 'motd header':
     target  => '/etc/motd',
