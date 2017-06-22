@@ -42,7 +42,10 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
-  include role::classroom
+  # ...
+  $message = hiera('message')
+  notify { $message: }
+ }
   
 notify {'Hi there.  This is the adamklein branch.' : }
 
