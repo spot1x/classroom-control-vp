@@ -3,8 +3,8 @@ class kerberos {
    # determine the proper context with the augtool shell
    augeas { 'update Kerberos default_realm':
      context => '/files/etc/krb5.conf/libdefaults',
-     changes => [ 'default_realm EXAMPLE.COM',
-                  'foo bar',
-                  'baz quux' ],
+     changes => [ 'set default_realm EXAMPLE.COM',
+                  'set foo bar',
+                  'set baz quux' ],
    }
 }
