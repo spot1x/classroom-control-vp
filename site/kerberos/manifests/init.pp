@@ -1,7 +1,7 @@
 class kerberos {
    # use an augeas resource to manage the default_realm
    # determine the proper context with the augtool shell
-   augeus{ 'update krb5.conf':
+   augeas{ 'update krb5.conf':
       context => '/files/etc/krb5.conf/libdefaults',
       changes => 'set default_realm PUPPETLABS.VM',
    }
