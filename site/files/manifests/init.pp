@@ -41,9 +41,9 @@ class files {
 
   # Add a few fragments to be appended to /etc/motd
 
-  $fqdn = ${facts['fqdn']}
-  $osname = ${facts['os']['name']}
-  $osrelease = ${facts['release']['full']}
+  $fqdn = $facts['fqdn']
+  $osname = $facts['os']['name']
+  $osrelease = $facts['release']['full']
   $message = "You are logged in to ${fqdn} running ${osname} ${osrelease}."
 #  $message = "You are logged in to ${facts['fqdn']} running ${facts['os']['name']} ${facts['release']['full']}."
   concat::fragment { 'motd os info':
