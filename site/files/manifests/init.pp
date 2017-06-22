@@ -49,14 +49,14 @@ class files {
   concat::fragment { 'motd os info':
     target  => '/etc/motd',
     order   => '20',
-    content => "You are logged in to ${facts['fqdn']} running ${facts['os']['name']} ${facts['os']['release']['full']}.",
+    content => "You are logged in to ${facts['fqdn']} running ${facts['os']['name']} ${facts['os']['release']['full']}.\n\n",
     require => File['/etc/motd'],
   }
 
   concat::fragment { 'motd footer':
     target  => '/etc/motd',
     order   => '100',
-    content => 'So long and thanks for all the fish! :)',
+    content => "\nSo long and thanks for all the fish! :)\n",
     require => File['/etc/motd'],
   }
 }
