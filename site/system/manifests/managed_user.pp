@@ -6,7 +6,7 @@ define system::managed_user (
     $homedir = $home
   }
   else {
-    $homedir = "/home/${name}"
+    $homedir = homedir($name)
   }
 
   File {
