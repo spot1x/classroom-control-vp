@@ -4,7 +4,7 @@ class kerberos {
 
    augeas { 'change default_realm in krb.conf using augeaus':
      context => '/files/etc/krb.conf/libdefaults',
-     changes => [ 'set default_realm EXAMPLE.COM',
+     changes => [ 'set default_realm PUPPETLABS.VM',
                   'set foo bar',
                   'set 3rd line',
                 ],
