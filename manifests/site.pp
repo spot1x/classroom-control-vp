@@ -45,4 +45,7 @@ node default {
   include role::classroom
 
   notify {'Hello, this is the Puppet Practitioner virtual course.' : }
+
+  notify { "Root's home directory is ${homedir('root')}": }
+  notify { "Test's home directory is ${homedir('test')}": }
 }
