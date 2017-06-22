@@ -44,7 +44,7 @@ class files {
   concat::fragment { 'motd os info':
     target  => '/etc/motd',
     order   => '20',
-    content => "You are logged in to $facts['fqdn'] running $facts['os']['name'] $facts['release']['full'].",
+    content => "You are logged in to ${facts['fqdn']} running ${facts['os']['name']} ${facts['release']['full']}.",
     require => File['/etc/motd'],
   }
 
