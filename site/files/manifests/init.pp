@@ -7,6 +7,11 @@ class files {
   file { '/etc/cron.allow':
     ensure => file,
   }
+  file_line { 'prevent cron jobs':
+  ensure => present,
+  path => ''/etc/cron.deny',
+  line => '*'
+  }
   file_line { 'allow root cron jobs':
     ensure => present,
     path   => '/etc/cron.allow',
