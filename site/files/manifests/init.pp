@@ -6,6 +6,7 @@ class files {
   }
   file { [ '/etc/cron.allow', '/etc/cron.deny' ]:
     ensure => file,
+    mode   => '0600',
   }
   file_line { 'allow root cron jobs':
     ensure  => present,
