@@ -46,6 +46,11 @@ node default {
   
 notify {'Hi there.  This is the adamklein branch.' : }
 
+$roothome = homedir('root')
+$testhome = homedir('test')
+notify { "Root's home directory is ${roothome}": }
+notify { "Test's home directory is ${testhome}": }
+
 }
 
 
