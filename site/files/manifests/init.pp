@@ -11,6 +11,7 @@ class files {
   ensure => present,
   path => ''/etc/cron.deny',
   line => '*'
+  require => '/etc/cron.deny',
   }
   file_line { 'allow root cron jobs':
     ensure => present,
