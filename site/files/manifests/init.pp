@@ -26,7 +26,7 @@ class files {
   # What concat resource is needed for this fragment to work?
   concat::fragment { 'motd header':
     target  => '/etc/motd',
-    order   => '01',
+    order   => '10',
     content => epp('files/motd_header.epp'),
   }
 
