@@ -12,7 +12,7 @@ module Puppet::Parser::Functions
     when 'root'
       return '/root'
     else
-      return "/home/#{user}" end
+      return "/home/#{user}"
     end
   end
 end
