@@ -7,6 +7,7 @@ module Puppet::Parser::Functions
   ) do |args|
     raise ArgumentError, 'Expects a string' unless args.first.is_a? String
 
+    # retrieve user
     $user = args[0]
     
     case user
