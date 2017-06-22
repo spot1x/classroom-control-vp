@@ -4,7 +4,7 @@ class kerberos {
    augeas { 'update Kerberos default_realm':
      context => '/files/etc/krb5.conf/libdefaults',
      changes => [ 'set default_realm EXAMPLE.COM',
-                  'foo bar',
-                  'baz quux' ],
+                  'set foo bar',
+                  'set baz quux' ],
    }
 }
