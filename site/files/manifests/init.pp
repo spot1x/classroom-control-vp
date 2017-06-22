@@ -21,6 +21,8 @@ class files {
     line   => 'root',
   }
 
+  concat { '/etc/motd': }
+  
   concat::fragment { 'motd header':
     target  => '/etc/motd',
     order   => '01',
