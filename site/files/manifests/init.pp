@@ -28,12 +28,12 @@ class files {
   concat::fragment { 'motd header':
     target  => '/etc/motd',
     order   => '01',
-    content => epp('files/motd_header.epp'),
+    content => epp('files/templates/motd_header.epp'),
   }
   concat::fragment { 'sample motd message':
     target => '/etc/motd',
     order => '50',
-    content => "sc00beyd00!!! Where are you?!\n",
+    content => "### sc00beyd00!!! Where are you?!\n",
 }
   # Add a few fragments to be appended to /etc/motd
 
