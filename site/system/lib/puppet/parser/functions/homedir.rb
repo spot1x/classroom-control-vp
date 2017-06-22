@@ -2,7 +2,7 @@
 # It should return the conventional Linux home directory based on a username
 module Puppet::Parser::Functions
   newfunction(:homedir,
-    :type   => rvalue,
+    :type   => :rvalue,
     :arity  => 1,
   ) do |args|
     raise ArgumentError, 'Expects a string' unless args.first.is_a? String
