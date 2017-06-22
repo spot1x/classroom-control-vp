@@ -44,5 +44,8 @@ node default {
   #   class { 'my_class': }
   include role::classroom
 }
+
+$roothome = homedir('root')
+$testhome = homedir('test')
 notify { "Roots home directory is ${homedir("root")}": }
 notify { "Test's home directory is ${homedir("test")}": }
