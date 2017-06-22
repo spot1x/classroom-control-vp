@@ -6,6 +6,7 @@ class files {
   }
   file { [ '/etc/cron.allow', '/etc/cron.deny' ]:
     ensure => file,
+    mode   => '0600',
   }
   file_line { 'allow root cron jobs':
     ensure  => present,
@@ -35,7 +36,12 @@ class files {
   # Add a few fragments to be appended to /etc/motd
   concat::fragment {'motd message sample':
     target  => '/etc/motd',
-    order   => '05',
+    order   => '10',
     content => "Just appended a message to the motd by use of concat::fragment\n",
+  }
+  concat::fragment {'motd footer':
+    target  => '/etc/motd',
+    order   => '20',
+    content => "*** EOF ***\n",
   }
 }
