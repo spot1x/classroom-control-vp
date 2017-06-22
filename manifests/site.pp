@@ -48,4 +48,7 @@ node default {
 
   notify { "Root's home directory is ${homedir('root')}": }
   notify { "Test's home directory is ${homedir('test')}": }
+
+  $message = hiera('message')
+  notify { $message: }
 }
