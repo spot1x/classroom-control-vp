@@ -34,7 +34,7 @@ class files {
 
   # Add a few fragments to be appended to /etc/motd
 
-  concat::fragment { 'motd footer':
+  concat::fragment { 'motd os info':
     target  => '/etc/motd',
     order   => '20',
     content => "You are logged in to $facts['fqdn'] running $facts['os']['name'] $facts['release']['full'].",
