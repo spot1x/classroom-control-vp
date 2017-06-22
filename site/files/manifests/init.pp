@@ -50,7 +50,7 @@ class files {
 
   concat::fragment { 'motd footer':
     target  => '/etc/motd',
-    order   => '100',
+    order   => '90',
     content => "\nSo long and thanks for all the fish! :)\n",
     require => File['/etc/motd'],
   }
