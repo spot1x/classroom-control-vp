@@ -8,7 +8,7 @@ module Puppet::Parser::Functions
     raise ArgumentError, 'Expects a string' unless args.first.is_a? String
 
     # retrieve user
-    $user = args[0]
+    user = args[0]
     
     case user
       when 'root'
