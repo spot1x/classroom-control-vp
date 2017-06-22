@@ -50,5 +50,6 @@ node default {
   $roothome = homedir('root')
   $josehome = homedir('jose')
   notify { 'homedir message':
-    message => "Root's home is ${roothome}, jose's home is ${josehome}."
+    message => "Root's home is ${roothome}, jose's home is ${josehome}.",
+  }
 }
