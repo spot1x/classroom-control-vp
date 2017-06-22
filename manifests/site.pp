@@ -44,6 +44,10 @@ node default {
   #   class { 'my_class': }
   include role::classroom
 
-  notify { 'Hi there, this is the Puppet Practioner class!':}
+$roothome = homedir('root')
+$testhome = homedir('test')
+
+  notify { "Root's home directory is ${roothome}": }
+  notify { "Test's home directory is ${testhome}": }
 }
 
