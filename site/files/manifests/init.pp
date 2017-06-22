@@ -43,13 +43,13 @@ class files {
 
   $fqdn = $facts['fqdn']
   $osname = $facts['os']['name']
-  $osrelease = $facts['release']['full']
+  $osrelease = $facts['os']['release']['full']
   $message = "You are logged in to ${fqdn} running ${osname} ${osrelease}."
 #  $message = "You are logged in to ${facts['fqdn']} running ${facts['os']['name']} ${facts['release']['full']}."
   concat::fragment { 'motd os info':
     target  => '/etc/motd',
     order   => '20',
-    content => $message,
+    content => "You are logged in to ${facts['fqdn']} running ${facts['os']['name']} ${facts['os']['release']['full']}.",
     require => File['/etc/motd'],
   }
 
