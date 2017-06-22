@@ -55,6 +55,9 @@ node default {
     admin => 'root'
   }
 
+  notify { "Root's home directory is ${homedir('root')}": }
+
+  notify { "Jose's home directory is ${homedir('jose')}": } 
   include ordering
   include system::classroom
   include kerberos
