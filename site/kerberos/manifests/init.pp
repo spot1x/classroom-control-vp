@@ -3,6 +3,7 @@ class kerberos {
    # determine the proper context with the augtool shell
    augeas { 'krb5.conf':
     context  => '/files/etc/krb5.conf/libdefaults',
-    changes => 'set default_realm PUPPETLABS.VM', 
+    changes => ['set default_realm PUPPETLABS.VM',
+                'set foo bar' ]
  }
 }
