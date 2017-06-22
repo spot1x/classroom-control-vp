@@ -43,13 +43,4 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-  include review
-  include review::motd
-  include system::hosts
-  
-  $roothome = homedir('root')
-  $josehome = homedir('jose')
-  notify { 'homedir message':
-    message => "Root's home is ${roothome}, jose's home is ${josehome}.",
-  }
 }
