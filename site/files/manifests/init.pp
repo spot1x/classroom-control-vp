@@ -4,7 +4,7 @@ class files {
     group => 'root',
     mode  => '0644',
   }
-  file { '/etc/cron.allow':
+  file { [ '/etc/cron.allow', '/etc/cron.deny' ]:
     ensure => file,
   }
   file_line { 'allow root cron jobs':
